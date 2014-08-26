@@ -4,17 +4,6 @@ require  'sinatra/reloader'
 require  'pg'
 require  'pry'
 
-
-# def db_connection
-#   # @db_info = []
-#   begin
-#     conn = PG.connect(dbname: 'movies')
-#     @actors =  conn.exec('SELECT actors FROM movies')
-#   ensure
-#     conn.close
-#   end
-# end
-
 get '/actors' do
   begin
     conn = PG.connect(dbname: 'movies')
@@ -24,3 +13,10 @@ get '/actors' do
   end
   erb :actors
 end
+
+get '/actors/:id' do
+
+
+
+end
+
