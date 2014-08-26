@@ -5,19 +5,22 @@ require  'pg'
 require  'pry'
 
 
-def db_connection
-  @db_info = []
-  begin
-    @db_info = PG.connect(dbname: 'movies')
-  ensure
-    @db_info.close
-  end
-end
+# def db_connection
+#   # @db_info = []
+#   begin
+#     conn = PG.connect(dbname: 'movies')
+#     @actors =  conn.exec('SELECT actors FROM movies')
+#   ensure
+#     conn.close
+#   end
+# end
 
 get '/actors' do
-  @actors = Array.new
-  db_connection do |conn|
-   @actors =  conn.exec('SELECT * FROM actors')
+  begin
+    conn = PG.connect(dbname: 'movies')
+    @actors =  conn.exec('SELECT * FROM actors')
+  ensure
+    conn.close
   end
   erb :actors
 end
