@@ -1,0 +1,8 @@
+<html>
+<body>
+<%@movies.each do |movie|%>
+<p>Title: <a href = "/movies/<%=movie["title"]%>"> <%=movie["title"]%> </a></p>
+<p> Year: <%=movie["year"]%></p>
+<%end%>
+</body>
+</html>

@@ -1,7 +1,11 @@
 <html>
-  <body><h1>Test:</h1>
-  <% @actors.each do |name| %>
-  <p><a href = "/actors/<%=name['id']%>"><%= name['name'] %><a></p>
-  <% end %>
+  <body><h1>All Actors: </h1>
+
+    <% @i = 0 %>
+    <% @actors.each do |name| %>
+    <p><a href="/actors/<%=@actor_id[@i]%>"><%= name %><a></p>
+    <% @i += 1 %>
+    <% end %>
+
   </body>
 </html>

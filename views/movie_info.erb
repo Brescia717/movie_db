@@ -1,0 +1,12 @@
+<html>
+<body>
+<h1>
+  <p>Title: <%=@movies[0]["title"]%></p>
+  <p>Year: <%=@movies[0]["year"]%></p>
+</h1>
+<ul>Character List <%@movies.each do |movie|%>
+  <li><p><%=movie["character"]%> Played By: <a href="/actors/<%=movie["actor_id"]%>"><%= movie["name"]%></a></p></li>
+  <%end%>
+</ul>
+</body>
+</html>
